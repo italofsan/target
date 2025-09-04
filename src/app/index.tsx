@@ -8,6 +8,11 @@ export default function Index() {
         <Text>Expo Router</Text>
 
         <Button title="Nova meta" onPress={() => router.navigate("/target")} />
+
+        <Button
+          title="Transação"
+          onPress={() => router.navigate("/transaction/765890")}
+        />
       </View>
     </>
   );
