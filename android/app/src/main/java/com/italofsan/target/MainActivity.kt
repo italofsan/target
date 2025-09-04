@@ -1,4 +1,4 @@
-package com.target
+package com.italofsan.target
 
 import android.os.Build
 import android.os.Bundle
