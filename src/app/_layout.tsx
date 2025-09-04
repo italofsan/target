@@ -7,6 +7,8 @@ import {
   Inter_700Bold,
 } from "@expo-google-fonts/inter";
 
+import { Loading } from "@/components/Loading";
+
 import { colors } from "@/theme/colors";
 
 export default function Layout() {
@@ -17,7 +19,7 @@ export default function Layout() {
   });
 
   if (!fontsLoaded) {
-    return null;
+    return <Loading />;
   }
 
   return (
