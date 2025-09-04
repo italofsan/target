@@ -6,6 +6,10 @@ import { styles } from "./styles";
 
 export function Loading() {
   return (
-    <ActivityIndicator color={colors.blue[500]} style={styles.container} />
+    <ActivityIndicator
+      size={48}
+      color={colors.blue[500]}
+      style={styles.container}
+    />
   );
 }

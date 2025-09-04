@@ -1,26 +1,11 @@
-import { router } from "expo-router";
-import { Button, Text, View } from "react-native";
+import { View } from "react-native";
 
-import { fontFamily } from "@/theme/fontFamily";
+import { HomeHeader } from "@/components/HomeHeader";
 
 export default function Index() {
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text style={{ fontFamily: fontFamily.regular, fontSize: 34 }}>
-        Expo Router
-      </Text>
-
-      <Button title="Nova meta" onPress={() => router.navigate("/target")} />
-
-      <Button
-        title="Transação"
-        onPress={() => router.navigate("/transaction/765890")}
-      />
-
-      <Button
-        title="Progresso"
-        onPress={() => router.navigate("/in-progress/12")}
-      />
+    <View style={{ flex: 1 }}>
+      <HomeHeader />
     </View>
   );
 }
