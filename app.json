@@ -16,6 +16,9 @@
       "bundleIdentifier": "com.italofsan.target",
       "icon": "./assets/ios-icon.png"
     },
-    "plugins": ["expo-router"]
+    "plugins": [
+      "expo-router",
+      "expo-font"
+    ]
   }
 }
