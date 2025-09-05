@@ -1,13 +1,13 @@
-import { Text, View } from "react-native";
-import Input, { CurrencyInputProps } from "react-native-currency-input";
+import { Text, View } from 'react-native'
+import Input, { CurrencyInputProps } from 'react-native-currency-input'
 
-import { colors } from "@/theme";
+import { colors } from '@/theme'
 
-import { styles } from "./styles";
+import { styles } from './styles'
 
 type Props = CurrencyInputProps & {
-  label: string;
-};
+  label: string
+}
 
 export function CurrencyInput({ label, ...rest }: Props) {
   return (
@@ -17,13 +17,12 @@ export function CurrencyInput({ label, ...rest }: Props) {
       <Input
         style={styles.input}
         placeholderTextColor={colors.gray[400]}
-        prefix="R$ "
-        delimiter="."
-        separator=","
+        delimiter='.'
+        separator=','
         precision={2}
         minValue={0}
         {...rest}
       />
     </View>
-  );
+  )
 }
