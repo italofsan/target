@@ -1,14 +1,14 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native'
 
-import { colors, fontFamily } from "@/theme";
+import { colors, fontFamily } from '@/theme'
 
 export const styles = StyleSheet.create({
   container: {
-    width: "100%",
+    width: '100%',
     gap: 10,
   },
   label: {
-    color: colors.gray[500],
+    color: colors.gray[600],
     fontFamily: fontFamily.medium,
     fontSize: 12,
   },
@@ -20,4 +20,4 @@ export const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: colors.gray[300],
   },
-});
+})

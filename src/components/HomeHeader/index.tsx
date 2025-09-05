@@ -1,22 +1,22 @@
-import { View, Text } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
+import { View, Text } from 'react-native'
+import { LinearGradient } from 'expo-linear-gradient'
 
-import { colors } from "@/theme/colors";
+import { colors } from '@/theme/colors'
 
-import { Separator } from "../Separator";
-import { Summary, SummaryProps } from "../Summary";
+import { Separator } from '../Separator'
+import { Summary, SummaryProps } from '../Summary'
 
-import { styles } from "./styles";
+import { styles } from './styles'
 
 export type HomeHeaderProps = {
-  total: string;
-  input: SummaryProps;
-  output: SummaryProps;
-};
+  total: string
+  input: SummaryProps
+  output: SummaryProps
+}
 
 type Props = {
-  data: HomeHeaderProps;
-};
+  data: HomeHeaderProps
+}
 
 export function HomeHeader({ data }: Props) {
   return (
@@ -34,15 +34,15 @@ export function HomeHeader({ data }: Props) {
       <View style={styles.summary}>
         <Summary
           data={data.input}
-          icon={{ name: "arrow-upward", color: colors.green[500] }}
+          icon={{ name: 'arrow-upward', color: colors.green[500] }}
         />
 
         <Summary
-          isLeft
+          isRight
           data={data.output}
-          icon={{ name: "arrow-downward", color: colors.red[400] }}
+          icon={{ name: 'arrow-downward', color: colors.red[400] }}
         />
       </View>
     </LinearGradient>
-  );
+  )
 }

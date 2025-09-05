@@ -1,31 +1,31 @@
-import { ColorValue, Text, View } from "react-native";
-import { MaterialIcons } from "@expo/vector-icons";
+import { ColorValue, Text, View } from 'react-native'
+import { MaterialIcons } from '@expo/vector-icons'
 
-import { styles } from "./styles";
+import { styles } from './styles'
 
 export type SummaryProps = {
-  label: string;
-  value: string;
-};
+  label: string
+  value: string
+}
 
 type Props = {
-  data: SummaryProps;
+  data: SummaryProps
   icon: {
-    name: keyof typeof MaterialIcons.glyphMap;
-    color: ColorValue;
-  };
-  isLeft?: boolean;
-};
+    name: keyof typeof MaterialIcons.glyphMap
+    color: ColorValue
+  }
+  isRight?: boolean
+}
 
-export function Summary({ data, icon, isLeft = false }: Props) {
+export function Summary({ data, icon, isRight = false }: Props) {
   return (
     <View style={styles.container}>
-      <View style={[styles.header, isLeft && { justifyContent: "flex-end" }]}>
+      <View style={[styles.header, isRight && { justifyContent: 'flex-end' }]}>
         <MaterialIcons name={icon.name} size={16} color={icon.color} />
         <Text style={styles.label}>{data.label}</Text>
       </View>
 
       <Text style={styles.value}>{data.value}</Text>
     </View>
-  );
+  )
 }
