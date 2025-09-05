@@ -52,6 +52,12 @@ export default function InProgress() {
         renderItem={({ item }) => (
           <Transaction data={item} onRemove={() => {}} />
         )}
+        emptyMessage='Nenhuma transação. Toque em nova transação para guardar seu primeiro dinheiro aqui.'
+      />
+
+      <Button
+        title='Nova transação'
+        onPress={() => router.navigate(`/transaction/${params.id}`)}
       />
 
       <Button title='Voltar' onPress={() => router.back()} />
