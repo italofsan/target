@@ -82,7 +82,7 @@ export default function Target() {
       return
     }
 
-    Alert.alert('Remover', 'Deseja realemente remover?', [
+    Alert.alert('Remover', 'Deseja realmente remover?', [
       { text: 'Não', style: 'cancel' },
       { text: 'Sim', onPress: remove },
     ])
