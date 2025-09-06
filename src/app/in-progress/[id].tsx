@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react'
 import { router, useFocusEffect, useLocalSearchParams } from 'expo-router'
-import { Alert, View } from 'react-native'
+import { Alert, StatusBar, View } from 'react-native'
 import dayjs from 'dayjs'
 
 import { useTransactionsDatabase } from '@/database/useTransactionsDatabase'
@@ -105,6 +105,8 @@ export default function InProgress() {
 
   return (
     <View style={{ flex: 1, padding: 24, gap: 32 }}>
+      <StatusBar barStyle='dark-content' />
+
       <PageHeader
         title={details.name}
         rightButton={{
