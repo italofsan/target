@@ -5,6 +5,10 @@ export type TargetCreate = {
   amount: number
 }
 
+export type TargetUpdate = TargetCreate & {
+  id: number
+}
+
 export type TargetResponse = {
   id: number
   name: string
@@ -13,10 +17,6 @@ export type TargetResponse = {
   percentage: number
   created_at: Date
   updated_at: Date
-}
-
-export type TargetUpdate = TargetCreate & {
-  id: number
 }
 
 export function useTargetDatabase() {
