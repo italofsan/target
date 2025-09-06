@@ -14,7 +14,7 @@ import { Progress } from '@/components/Progress'
 import { Loading } from '@/components/Loading'
 import { Button } from '@/components/Button'
 import { List } from '@/components/List'
-import { useTransactionDatabase } from '@/database/useTransactionDatabase'
+import { useTransactionsDatabase } from '@/database/useTransActionsDatabase'
 
 export default function InProgress() {
   const params = useLocalSearchParams<{ id: string }>()
@@ -28,7 +28,7 @@ export default function InProgress() {
   })
 
   const targetDatabase = useTargetDatabase()
-  const transactionsDatabase = useTransactionDatabase()
+  const transactionsDatabase = useTransactionsDatabase()
 
   async function fetchTargetDetails() {
     try {

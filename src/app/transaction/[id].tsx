@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { router, useLocalSearchParams } from 'expo-router'
 import { Alert, View } from 'react-native'
 
-import { useTransactionDatabase } from '@/database/useTransactionDatabase'
+import { useTransactionsDatabase } from '@/database/useTransActionsDatabase'
 import { TransactionTypes } from '@/utils/TransactionTypes'
 
 import { TransactionType } from '@/components/TransactionTypes'
@@ -18,7 +18,7 @@ export default function Transaction() {
   const [isCreating, setIsCreating] = useState(false)
   const [observation, setObservation] = useState('')
 
-  const transactionsDatabase = useTransactionDatabase()
+  const transactionsDatabase = useTransactionsDatabase()
 
   async function handleCreate() {
     try {
