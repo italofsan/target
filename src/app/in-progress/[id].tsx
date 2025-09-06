@@ -13,25 +13,11 @@ import { Progress } from '@/components/Progress'
 import { Loading } from '@/components/Loading'
 import { Button } from '@/components/Button'
 import { List } from '@/components/List'
-
-const transactions: TransactionProps[] = [
-  {
-    id: '1',
-    value: 'R$ 20,00',
-    date: '12/04/25',
-    type: TransactionTypes.Output,
-  },
-  {
-    id: '2',
-    value: 'R$ 300,00',
-    date: '12/04/25',
-    description: 'CDB de 110% no banco XPTO',
-    type: TransactionTypes.Input,
-  },
-]
+import { useTransactionDatabase } from '@/database/useTransactionDatabase'
 
 export default function InProgress() {
   const params = useLocalSearchParams<{ id: string }>()
+  const [transactions, setTransactions] = useState<TransactionProps[]>()
   const [isFetching, setIsFetching] = useState(true)
   const [details, setDetails] = useState({
     name: '',
@@ -41,8 +27,9 @@ export default function InProgress() {
   })
 
   const targetDatabase = useTargetDatabase()
+  const transactionsDatabase = useTransactionDatabase()
 
-  async function fetchDetails() {
+  async function fetchTargetDetails() {
     try {
       const response = await targetDatabase.show(Number(params.id))
       setDetails({
@@ -57,10 +44,33 @@ export default function InProgress() {
     }
   }
 
-  async function fetchData() {
-    const fetchDetailsPromise = fetchDetails()
+  async function fetchTransactions() {
+    try {
+      const response = await transactionsDatabase.listByTargetId(
+        Number(params.id)
+      )
 
-    await Promise.all([fetchDetailsPromise])
+      setTransactions(
+        response.map((item) => ({
+          id: String(item.id),
+          value: numberToCurrency(item.amount),
+          date: String(item.created_at),
+          description: item.observation,
+          type:
+            item.amount < 0 ? TransactionTypes.Output : TransactionTypes.Input,
+        }))
+      )
+    } catch (error) {
+      Alert.alert('Erro', 'Não foi possível carregar as transações.')
+      console.log(error)
+    }
+  }
+
+  async function fetchData() {
+    const fetchDetailsPromise = fetchTargetDetails()
+    const fetchTransactionsPromise = fetchTransactions()
+
+    await Promise.all([fetchDetailsPromise, fetchTransactionsPromise])
     setIsFetching(false)
   }
 
