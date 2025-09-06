@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { router, useLocalSearchParams } from 'expo-router'
 import { Alert, View } from 'react-native'
 
-import { useTransactionsDatabase } from '@/database/useTransActionsDatabase'
+import { useTransactionsDatabase } from '@/database/useTransactionsDatabase'
 import { TransactionTypes } from '@/utils/TransactionTypes'
 
 import { TransactionType } from '@/components/TransactionTypes'

@@ -3,6 +3,7 @@ import { router, useFocusEffect, useLocalSearchParams } from 'expo-router'
 import { Alert, View } from 'react-native'
 import dayjs from 'dayjs'
 
+import { useTransactionsDatabase } from '@/database/useTransactionsDatabase'
 import { useTargetDatabase } from '@/database/useTargetDatabase'
 
 import { TransactionTypes } from '@/utils/TransactionTypes'
@@ -14,7 +15,6 @@ import { Progress } from '@/components/Progress'
 import { Loading } from '@/components/Loading'
 import { Button } from '@/components/Button'
 import { List } from '@/components/List'
-import { useTransactionsDatabase } from '@/database/useTransActionsDatabase'
 
 export default function InProgress() {
   const params = useLocalSearchParams<{ id: string }>()
