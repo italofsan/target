@@ -16,6 +16,9 @@ It is a practical opportunity to consolidate essential skills in mobile developm
   # - Android Studio configured (for Android Emulator)
   # - Xcode configured (for iOS Simulator, macOS only)
 
+  # Open CMD
+  # Put these commands at the command prompt 
+
   # Clone this repository:
   $ git clone https://github.com/italofsan/target.git
 
